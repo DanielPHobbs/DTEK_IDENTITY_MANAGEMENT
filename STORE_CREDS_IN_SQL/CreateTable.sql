@@ -1,0 +1,9 @@
+CREATE TABLE dbo.[User]
+(
+    UserID INT IDENTITY(1,1) NOT NULL,
+    LoginName NVARCHAR(40) NOT NULL,
+    PasswordHash BINARY(64) NOT NULL,
+    FirstName NVARCHAR(40) NULL,
+    LastName NVARCHAR(40) NULL,
+    CONSTRAINT [PK_User_UserID] PRIMARY KEY CLUSTERED (UserID ASC)
+)
