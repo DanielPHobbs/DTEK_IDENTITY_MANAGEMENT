@@ -1,14 +1,17 @@
 #assume sqlserver PS module is installed
+
+#[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+#install-module -Name sqlserver
 import-module sqlserver;
  
 $db = 'DTEK_IDENTITY_MANAGEMENT'; # the db hosting dbo.[UserEncryptedPwd]
 $svr = 'dteksq2017-n1.dtek.com' # the sql instance hosting database $db
-$username = 'Stanley.laurel'; #replace per your requirement
+$username = 'dhobbs-adm'; #replace per your requirement
 $qry = @"
 select EncryptedPwd from dbo.UserEncryptedPwd
 where UserName='$($username)'
-and Creator = '$($env:USERNAME)'
-and HostComputer = '$($env:COMPUTERNAME)'
+--and Creator = '$($env:USERNAME)'
+--and HostComputer = '$($env:COMPUTERNAME)'
 "@;
  
 $rslt = invoke-sqlcmd -ServerInstance $svr -Database $db -Query $qry -OutputAs DataRows;
