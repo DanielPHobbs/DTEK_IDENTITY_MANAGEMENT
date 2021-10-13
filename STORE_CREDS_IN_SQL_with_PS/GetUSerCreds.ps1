@@ -10,8 +10,8 @@ $username = 'dhobbs-adm'; #replace per your requirement
 $qry = @"
 select EncryptedPwd from dbo.UserEncryptedPwd
 where UserName='$($username)'
---and Creator = '$($env:USERNAME)'
---and HostComputer = '$($env:COMPUTERNAME)'
+and Creator = '$($env:USERNAME)'
+and HostComputer = '$($env:COMPUTERNAME)'
 "@;
  
 $rslt = invoke-sqlcmd -ServerInstance $svr -Database $db -Query $qry -OutputAs DataRows;

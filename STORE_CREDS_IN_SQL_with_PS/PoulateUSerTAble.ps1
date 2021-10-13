@@ -5,6 +5,7 @@ import-module sqlserver;
  
 $db = 'DTEK_IDENTITY_MANAGEMENT';   # the db hosting dbo.[UserEncryptedPwd]
 $svr = 'dteksq2017-n1.dtek.com'     # the sql instance hosting database $db
+
 $username = 'dhobbs-adm';       #replace per your requirement
 $userPwd ='Popeye@44'              # replace per your requirement
  
