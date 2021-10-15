@@ -1,3 +1,5 @@
+use [DTEKUK-HR]
+
 /*Data for the table regions */
 SET IDENTITY_INSERT regions ON;
   
