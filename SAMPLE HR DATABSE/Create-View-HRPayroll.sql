@@ -1,5 +1,6 @@
 use [DTEKUK-HR]
 go
+
 CREATE VIEW hrpayroll
 AS
 SELECT 
@@ -8,6 +9,7 @@ SELECT
       email,
       phone_number,
 	  e.job_id,
+	  j.job_title,
       hire_date,
       salary
      
@@ -15,3 +17,6 @@ SELECT
         dbo.employees e
             INNER JOIN
         jobs j ON j.job_id= e.job_id
+
+
+  --DROP VIEW hrpayroll
