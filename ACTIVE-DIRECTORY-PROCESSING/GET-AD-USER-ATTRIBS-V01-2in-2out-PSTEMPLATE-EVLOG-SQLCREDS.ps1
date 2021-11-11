@@ -1,7 +1,8 @@
 
 #----------------------------------------------------------------------
 # Get Creds for PSSESSION
-# get and unencrypt Service password
+# get and unencrypt Service password from SQL
+#
 $passwd = convertto-securestring -AsPlainText -Force -String $UnencryptedPSSWD
 $creds = new-object -typename System.Management.Automation.PSCredential -argumentlist "Runbook Access Account",$passwd
 
