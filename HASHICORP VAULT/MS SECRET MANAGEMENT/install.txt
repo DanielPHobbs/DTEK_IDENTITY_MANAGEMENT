@@ -27,3 +27,11 @@ Reset-SecretStore
 
 
 Install-Module -Name Az.KeyVault
+
+
+https://d2c-it.nl/2019/03/27/hashicorp-vault-on-windows-with-powershell/
+
+https://github.com/D2CIT/Hashicorp-Vault
+
+
+
