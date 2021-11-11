@@ -1,0 +1,29 @@
+Install-Module -Name Microsoft.PowerShell.SecretManagement
+
+
+Register-SecretVault 
+Unregister-SecretVault 
+Get-SecretVault 
+Set-SecretVaultDefault
+ Test-SecretVault 
+ Set-Secret 
+ Set-SecretInfo 
+ Get-Secret 
+ Get-SecretInfo 
+ Remove-Secret 
+ Unlock-SecretVault
+
+
+
+Install-Module -Name Microsoft.PowerShell.SecretStore
+
+
+Cmdlets
+Unlock-SecretStore 
+Set-SecretStorePassword 
+Get-SecretStoreConfiguration
+Set-SecretStoreConfiguration
+Reset-SecretStore
+
+
+Install-Module -Name Az.KeyVault
