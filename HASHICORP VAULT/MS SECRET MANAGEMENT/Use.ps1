@@ -60,6 +60,12 @@ Install-Module -Name SecretManagement.Hashicorp.Vault.KV
 
 
 ## requires V6
-Register-SecretVault -ModuleName SecretManagement.Hashicorp.Vault.KV -Name dtek-prod-HVault -VaultParameters @{ VaultServer = 'http://hashivault.dtek.com:8200'; VaultAuthType = 'Token'}
+#Register-SecretVault -ModuleName SecretManagement.Hashicorp.Vault.KV -Name dtek-prod-HVault -VaultParameters @{ VaultServer = 'http://hashivault.dtek.com:8200'; VaultAuthType = 'Token'}
+Register-SecretVault -ModuleName SecretManagement.Hashicorp.Vault.KV -Name dtek-SCO-KV  -VaultParameters @{ VaultServer = 'http://vault.domain.local:8200'; VaultToken = 's.u5eAjYu9tdRDkmrZe0L3TwBu'}
 
+
+
+$VaultParameters = @{ VaultServer = 'https://vault-cluster.domain.local'
+   VaultToken = '<s.somecharactershere>'
+   KVVersion = 'v2'}
 ## https://github.com/joshcorr/SecretManagement.Hashicorp.Vault.KV
