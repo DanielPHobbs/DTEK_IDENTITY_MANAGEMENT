@@ -1,9 +1,10 @@
 
 #----------------------------------------------------------------------
 # Simple Creds for PSSESSION
-
+$Secret="Kerrisue1"
 $passwd = convertto-securestring -AsPlainText -Force -String $Secret
-$creds = new-object -typename System.Management.Automation.PSCredential -argumentlist "dtek\SVC-RBACC01",$passwd
+#$creds = new-object -typename System.Management.Automation.PSCredential -argumentlist "dtek\SVC-RBACC01",$passwd
+$creds = new-object -typename System.Management.Automation.PSCredential -argumentlist "dtek\danny",$passwd
 
 #----------------------------------------------------------------------
 
