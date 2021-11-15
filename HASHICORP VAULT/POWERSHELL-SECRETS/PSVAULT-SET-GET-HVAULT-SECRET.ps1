@@ -16,7 +16,7 @@ import-module PSVAULT
 
 Get-Command -module PSVAULT
 
-get-help -name get-VaultSecret
+get-help -name set-VaultLDAP
 
 #Connect-Vault [[-VaultPath] <String>] [[-APIAddress] <Object>] [-token] <Object> [-quite] [<CommonParameters>]
 
@@ -45,6 +45,7 @@ $secretPath="SCORunbook/SVC-RBacc02"
 $cred = get-VaultSecret -VaultObject $vaultobject -secretEnginename $SecretEngineName -SecretPath $secretPath -kvversion '2' 
 $cred.password 
 
+<<<<<<< HEAD
 #all tested ok with ROOT Token 
 
 
@@ -80,3 +81,14 @@ $Env:VAULT_ADDR='http://10.10.10.75:8200'
 $Env:VAULT_TOKEN="s.hm5HKoytX5mavIHp4lqpIQAX"
 
 #get code to use this in get-vaultobject
+=======
+#set-VaultLDAP [[-upndomain] <String>] [[-LDAPUrl] <String>] [[-userattr] <String>] [[-userdn] <String>] [[-groupdn] <String>] [[-groupattr] <String>] [[-insecure_tls]      <Boolean>] [<CommonParameters>]
+
+set-VaultLDAP  -upndomain "dtek.com" `
+-LDAPUrl  "ldap://dtekad05.dtek.com:389" `
+-userattr "sAMAccountName" `
+-userdn "dc=dtek,dc=com" `
+-groupdn "dc=dtek,dc=com" `
+-groupattr "cn" `
+-insecure_tls $false
+>>>>>>> f416783bc4d4ceec053770e6bd1c6de7aea009c5
