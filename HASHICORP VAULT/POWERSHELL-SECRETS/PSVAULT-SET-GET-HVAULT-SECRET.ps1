@@ -20,7 +20,7 @@ get-help -name get-VaultSecret
 
 #Connect-Vault [[-VaultPath] <String>] [[-APIAddress] <Object>] [-token] <Object> [-quite] [<CommonParameters>]
 
-$vaultConnect=Connect-Vault -VaultPath  "dtek-SCO-KV" -APIAddress "http://HashiVault.dtek.com:8200" -token "s.u5eAjYu9tdRDkmrZe0L3TwBu"
+$vaultConnect=Connect-Vault -VaultPath  "dtek-SCO-KV" -APIAddress "http://10.10.10.75:8200" -token "s.u5eAjYu9tdRDkmrZe0L3TwBu"
 #ok
 
 $vaultstatus =  get-vaultstatus -apiaddress $APIaddress
@@ -28,7 +28,7 @@ $vaultstatus
 
 #get-Vaultobject [-Address] <String> [-Token] <String> [<CommonParameters>]
 
-$vaultobject= get-Vaultobject -Address "http://HashiVault.dtek.com:8200" -token "s.Z8KCd2sFSDJN1FtBREGy4g8t"
+$vaultobject= get-Vaultobject -Address "http://10.10.10.75:8200" -token "s.Z8KCd2sFSDJN1FtBREGy4g8t"
 $vaultobject
 #ok
 
