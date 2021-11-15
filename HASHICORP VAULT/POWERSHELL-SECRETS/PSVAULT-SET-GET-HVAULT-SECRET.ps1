@@ -44,3 +44,39 @@ $secretPath="SCORunbook/SVC-RBacc02"
 #get-VaultSecret [[-VaultObject] <Object>] [[-secretEnginename] <Object>] [[-SecretPath] <Object>] [[-kvversion] <Object>] [<CommonParameters>]
 $cred = get-VaultSecret -VaultObject $vaultobject -secretEnginename $SecretEngineName -SecretPath $secretPath -kvversion '2' 
 $cred.password 
+
+#all tested ok with ROOT Token 
+
+
+# with limited TOKEN created against a policy
+  
+& vault token create -policy="scorunbook-access-readonly"
+#ok
+# TOKEN=    s.DHZoOYfDyqk4GAxLo1aUQ3oT 
+ 
+ 
+#attach to Vault 
+$vaultobject = Get-Vaultobject -Address "http://10.10.10.75:8200" -Token "s.DHZoOYfDyqk4GAxLo1aUQ3oT" 
+$vaultobject
+
+#get secret
+$secretPath="SCORunbook/SVC-RBacc02"
+$SecretEngineName = "dtek-SCO-KV"  
+$cred = get-VaultSecret -VaultObject $vaultobject -secretEnginename $SecretEngineName -SecretPath $secretPath 
+$cred.password  
+#ok
+
+#will not allow secret access to another secret engine with token used above 
+$SecretEngineName = "dtek-Azure-KV" 
+$secretPath       = "AZURE/SVC-AZacc01"
+$cred = get-VaultSecret -VaultObject $vaultobject -secretEnginename $SecretEngineName -SecretPath $secretPath 
+$cred.password  
+#ok
+
+# Use token in enviroment variable
+
+$Env:VAULT_ADDR='http://10.10.10.75:8200'
+
+$Env:VAULT_TOKEN="s.hm5HKoytX5mavIHp4lqpIQAX"
+
+#get code to use this in get-vaultobject
