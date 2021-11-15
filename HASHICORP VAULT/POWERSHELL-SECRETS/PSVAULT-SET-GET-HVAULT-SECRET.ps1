@@ -1,6 +1,6 @@
 #https://github.com/D2CIT/Hashicorp-Vault
 
-#   KEY         s.u5eAjYu9tdRDkmrZe0L3TwBu
+#   KEY         s.hm5HKoytX5mavIHp4lqpIQAX
 #   API         http://HashiVault.dtek.com:8200
 #   ENGINES     dtek-SCO-KV
 #   Secret      SCORunbook/SVC-RBacc01
@@ -20,7 +20,7 @@ get-help -name get-VaultSecret
 
 #Connect-Vault [[-VaultPath] <String>] [[-APIAddress] <Object>] [-token] <Object> [-quite] [<CommonParameters>]
 
-$vaultConnect=Connect-Vault -VaultPath  "dtek-SCO-KV" -APIAddress "http://10.10.10.75:8200" -token "s.u5eAjYu9tdRDkmrZe0L3TwBu"
+$vaultConnect=Connect-Vault -VaultPath  "dtek-SCO-KV" -APIAddress "http://10.10.10.75:8200" -token "s.hm5HKoytX5mavIHp4lqpIQAX"
 #ok
 
 $vaultstatus =  get-vaultstatus -apiaddress $APIaddress
@@ -28,7 +28,7 @@ $vaultstatus
 
 #get-Vaultobject [-Address] <String> [-Token] <String> [<CommonParameters>]
 
-$vaultobject= get-Vaultobject -Address "http://10.10.10.75:8200" -token "s.Z8KCd2sFSDJN1FtBREGy4g8t"
+$vaultobject= get-Vaultobject -Address "http://10.10.10.75:8200" -token "s.hm5HKoytX5mavIHp4lqpIQAX"
 $vaultobject
 #ok
 
