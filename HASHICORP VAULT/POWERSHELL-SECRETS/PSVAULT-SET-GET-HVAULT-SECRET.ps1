@@ -28,7 +28,7 @@ $vaultstatus
 
 #get-Vaultobject [-Address] <String> [-Token] <String> [<CommonParameters>]
 
-$vaultobject= get-Vaultobject -Address "http://HashiVault.dtek.com:8200" -token "s.u5eAjYu9tdRDkmrZe0L3TwBu"
+$vaultobject= get-Vaultobject -Address "http://HashiVault.dtek.com:8200" -token "s.Z8KCd2sFSDJN1FtBREGy4g8t"
 $vaultobject
 #ok
 
