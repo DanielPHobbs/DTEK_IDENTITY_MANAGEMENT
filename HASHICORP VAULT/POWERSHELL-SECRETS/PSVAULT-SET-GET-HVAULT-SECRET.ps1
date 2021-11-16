@@ -45,12 +45,39 @@ $secretPath="SCORunbook/SVC-RBacc02"
 $cred = get-VaultSecret -VaultObject $vaultobject -secretEnginename $SecretEngineName -SecretPath $secretPath -kvversion '2' 
 $cred.password 
 
-#set-VaultLDAP [[-upndomain] <String>] [[-LDAPUrl] <String>] [[-userattr] <String>] [[-userdn] <String>] [[-groupdn] <String>] [[-groupattr] <String>] [[-insecure_tls]      <Boolean>] [<CommonParameters>]
+<<<<<<< HEAD
+#all tested ok with ROOT Token 
 
-set-VaultLDAP  -upndomain "dtek.com" `
--LDAPUrl  "ldap://dtekad05.dtek.com:389" `
--userattr "sAMAccountName" `
--userdn "dc=dtek,dc=com" `
--groupdn "dc=dtek,dc=com" `
--groupattr "cn" `
--insecure_tls $false
+
+# with limited TOKEN created against a policy
+  
+& vault token create -policy="scorunbook-access-readonly"
+#ok
+# TOKEN=    s.DHZoOYfDyqk4GAxLo1aUQ3oT 
+ 
+ 
+#attach to Vault 
+$vaultobject = Get-Vaultobject -Address "http://10.10.10.75:8200" -Token "s.DHZoOYfDyqk4GAxLo1aUQ3oT" 
+$vaultobject
+
+#get secret
+$secretPath="SCORunbook/SVC-RBacc02"
+$SecretEngineName = "dtek-SCO-KV"  
+$cred = get-VaultSecret -VaultObject $vaultobject -secretEnginename $SecretEngineName -SecretPath $secretPath 
+$cred.password  
+#ok
+
+#will not allow secret access to another secret engine with token used above 
+$SecretEngineName = "dtek-Azure-KV" 
+$secretPath       = "AZURE/SVC-AZacc01"
+$cred = get-VaultSecret -VaultObject $vaultobject -secretEnginename $SecretEngineName -SecretPath $secretPath 
+$cred.password  
+#ok
+
+# Use token in enviroment variable
+
+$Env:VAULT_ADDR='http://10.10.10.75:8200'
+
+$Env:VAULT_TOKEN="s.hm5HKoytX5mavIHp4lqpIQAX"
+
+#get code to use this in get-vaultobject
