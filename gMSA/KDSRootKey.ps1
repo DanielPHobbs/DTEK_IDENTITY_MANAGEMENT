@@ -8,10 +8,21 @@ Test-KdsRootKey -KeyId '13956ed1-0832-27e1-0c5d-351861d739fb'
 
 
 New-ADServiceAccount -Name 'SCO19_gMSA' -DNSHostName 'SCO19_gMSA.dtek.com' -ManagedPasswordIntervalInDays 75
+New-ADServiceAccount -Name 'SCO19_gMSA_DAS' -DNSHostName 'SCO19_gMSA_DAS.dtek.com' -ManagedPasswordIntervalInDays 75
+New-ADServiceAccount -Name 'SCO19_gMSA_DWR' -DNSHostName 'SCO19_gMSA_DWR.dtek.com' -ManagedPasswordIntervalInDays 75
+New-ADServiceAccount -Name 'SCO19_gMSA_DWW' -DNSHostName 'SCO19_gMSA_DWW.dtek.com' -ManagedPasswordIntervalInDays 75
+New-ADServiceAccount -Name 'SCO19_gMSA_MAA' -DNSHostName 'SCO19_gMSA_MAA.dtek.com' -ManagedPasswordIntervalInDays 75
+
+
 
 Set-ADServiceAccount -Identity 'SCO19_gMSA' -PrincipalsAllowedToRetrieveManagedPassword 'SG-SCOM19_gMSA'
 
 Set-ADServiceAccount -Identity 'SCO19_gMSA' -PrincipalsAllowedToRetrieveManagedPassword 'DTEKAZMON-MS2$'
+Set-ADServiceAccount -Identity 'SCO19_gMSA_DAS' -PrincipalsAllowedToRetrieveManagedPassword 'DTEKAZMON-MS2$'
+Set-ADServiceAccount -Identity 'SCO19_gMSA_DWR' -PrincipalsAllowedToRetrieveManagedPassword 'DTEKAZMON-MS2$'
+Set-ADServiceAccount -Identity 'SCO19_gMSA_DWW' -PrincipalsAllowedToRetrieveManagedPassword 'DTEKAZMON-MS2$'
+Set-ADServiceAccount -Identity 'SCO19_gMSA_MAA' -PrincipalsAllowedToRetrieveManagedPassword 'DTEKAZMON-MS2$'
+
 
 
 
